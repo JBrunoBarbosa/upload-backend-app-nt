@@ -14,6 +14,11 @@ const comprasSchema = new Schema({
         required: true,
     },
 
+    comprou: {
+        type: Boolean,
+        required: true,
+    },
+
     quantity: {
         type: Number,
     },
