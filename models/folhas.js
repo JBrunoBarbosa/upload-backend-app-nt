@@ -22,6 +22,10 @@ const folhasSchema = new Schema({
         type: String,
     },
 
+    img: {
+        type: String,
+    },
+
     user: {
         type: String,
         required: true,
