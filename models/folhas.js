@@ -37,8 +37,8 @@ const folhasSchema = new Schema({
     },
 
     createdAt: { 
-        type: String, 
-        default: ((Date.now.getDate()) + "/" + (Date.now.getMonth()) + "/" + (Date.now.getFullYear()) + " " + (Date.now.getHours()) + ":" + (Date.now.getMinutes())), 
+        type: Date, 
+        default:Date.now, 
     },
 });
 
