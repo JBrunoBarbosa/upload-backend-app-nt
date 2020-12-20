@@ -19,6 +19,19 @@ const userSchema = new Schema({
         type: Date, 
         default: Date.now
     },
+
+    ponitsNumber: {
+        type: Number,
+    },
+
+    img: {
+        type: String,
+    },
+
+    tag: {
+        type: String, 
+    }
+
 });
 
 const User = mongoose.model('User', userSchema);
