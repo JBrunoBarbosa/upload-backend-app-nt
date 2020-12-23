@@ -19,8 +19,24 @@ const PONTO     = require('./routes/pontos');
 app.use(cors());
 app.use(express.json());
 
+const agg = [
+    {
+      '$sort': {
+        'when': 1
+      }
+    }
+];
+
 const uri = process.env.DB_URL;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
+    function(connectErr, client) {
+        assert.equal(null, connectErr);
+        const coll = client.db('').collection('');
+        coll.aggregate(agg, (cmdErr, result) => {
+          assert.equal(null, cmdErr);
+        });
+        client.close();
+}); 
 
 const connection = mongoose.connection;
 connection.once('open', () => {
