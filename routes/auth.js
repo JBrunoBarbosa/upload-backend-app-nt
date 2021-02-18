@@ -6,24 +6,24 @@ router.route('/').post((req, res) =>  {
     
     res.setHeader('Content-Type', 'application/json');
 
-        var userName = req.body.login
-        var userPass = req.body.password
+    var userName = req.body.login
+    var userPass = req.body.password
 
-        Users.find({ 'name': userName }, function(err, users) {
-            if (err) throw err;
+    Users.find({ 'name': userName }, function(err, users) {
+        if (err) throw err;
           
-            users.forEach(function(user) {
+        users.forEach(function(user) {
 
-                res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Content-Type', 'application/json');
 
-                if (user.name == userName && (user.password == userPass || user.password == SHA256(userPass))) {
+            if (user.name == userName && (user.password == userPass || user.password == SHA256(userPass))) {
 
-                    res.end(JSON.stringify({ user_name: user.name, user_img: user.img }));
+                res.end(JSON.stringify({ user_name: user.name, user_img: user.img }));
             
-                } 
-            });
-          });
-    }
+            } 
+        });
+    });
+    
 });
 
 module.exports = router;
