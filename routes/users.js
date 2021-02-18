@@ -1,3 +1,4 @@
+var SHA256 = require("crypto-js/sha256");
 const router = require('express').Router();
 let User = require('../models/users');
 
@@ -10,7 +11,8 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
 
     const user  = req.body;
-    const newUser = new User (user);
+    const newUser = new User (user)
+    newUser.password = SHA256(newUser.password).toString();
 
     newUser.save()
         .then(users => res.json('User Added'))

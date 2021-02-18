@@ -6,15 +6,13 @@ const PORT = process.env.PORT || 3000;
 require('dotenv').config();
 
 const USERS     = require('./routes/users');
-const TAREFAS   = require('./routes/tarefas');
-const MAQUINA   = require('./routes/maquina');
 const OBJETOS   = require('./routes/objetos');
 const COMPRAS   = require('./routes/compras');
 const FOLHAS    = require('./routes/folhas');
-const EVENTOS   = require('./routes/eventos');
-const TV        = require('./routes/horariotv');
 const SORTEIO   = require('./routes/sorteio');
 const PONTO     = require('./routes/pontos');
+const AUTH      = require('./routes/auth');
+const CALENDAR  = require('./routes/calendar');
 
 app.use(cors());
 app.use(express.json());
@@ -44,15 +42,13 @@ connection.once('open', () => {
 });
 
 app.use('/users', USERS);
-app.use('/tasks', TAREFAS);
-app.use('/machine', MAQUINA);
 app.use('/objects', OBJETOS);
 app.use('/buys', COMPRAS);
 app.use('/papers', FOLHAS);
-app.use('/events', EVENTOS);
-app.use('/tv', TV);
 app.use('/sort', SORTEIO);
 app.use('/points', PONTO);
+app.use('/auth', AUTH);
+app.use('/calendar', CALENDAR);
 
 app.listen(PORT, () => {
     console.log(`Server running at port:${PORT}`);
