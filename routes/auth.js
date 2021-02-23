@@ -6,24 +6,33 @@ router.route('/').post((req, res) =>  {
     
     res.setHeader('Content-Type', 'application/json');
 
-    var userName = req.body.login
-    var userPass = req.body.password
+    if (!req.body.login) {
+        res.status(404).json('Error: parameter login not found')
+    } else if (!req.body.password) {
+        res.status(404).json('Error: parameter password not found')
+    } else {
 
-    Users.find({ 'name': userName }, function(err, users) {
-        if (err) throw err;
-          
-        users.forEach(function(user) {
+        var userNameReq = req.body.login
+        var userPassReq = req.body.password
 
-            res.setHeader('Content-Type', 'application/json');
-
-            if (user.name == userName && (user.password == userPass || user.password == SHA256(userPass))) {
-
-                res.end(JSON.stringify({ user_name: user.name, user_img: user.img }));
+        Users.find({ 'name': userNameReq }, function(err, users) {
+            if (err) throw err;
             
-            } 
+            if (users.length == 0)
+                res.status(404).json('Error: user not found')
+
+            users.forEach(function(user) {
+                
+                if (user.password == userPassReq) {
+                    res.end(JSON.stringify({ user_name: userNameReq, user_img: user.img }));
+                } else {
+                    res.status(404).json('Error: pass not found') 
+                }
+            });
         });
-    });
-    
+
+    }
+
 });
 
 module.exports = router;
