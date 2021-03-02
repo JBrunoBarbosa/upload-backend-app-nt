@@ -6,11 +6,11 @@ router.route('/').post((req, res) =>  {
     
     res.setHeader('Content-Type', 'application/json');
 
-    if (!req.body.login) {
-        res.status(404).json('Error: parameter login not found')
-    } else if (!req.body.password) {
-        res.status(404).json('Error: parameter password not found')
-    } else {
+    //if (!req.body.login) {
+        //res.status(404).json('Error: parameter login not found')
+    //} else if (!req.body.password) {
+      //  res.status(404).json('Error: parameter password not found')
+    //} else {
 
         var userNameReq = req.body.login
         var userPassReq = req.body.password
@@ -31,7 +31,7 @@ router.route('/').post((req, res) =>  {
             });
         });
 
-    }
+    //}
 
 });
 
