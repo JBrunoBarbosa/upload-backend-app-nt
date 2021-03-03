@@ -5,7 +5,7 @@ let User = require('../models/users');
 router.route('/').get((req, res) => {
     User.find()
         .then(users => res.json(users))
-        .catch(err => res.status(400).json(error: 'Error post: ' + err))
+        .catch(err => res.status(400).json('error: ' + err))
 });
 
 router.route('/add').post((req, res) => {
@@ -16,14 +16,14 @@ router.route('/add').post((req, res) => {
 
     newUser.save()
         .then(users => res.json('User Added'))
-        .catch(err => res.status(400).json(error: 'Error post: ' + err))
+        .catch(err => res.status(400).json('error: ' + err))
 
 });
 
 router.route('/delete/:id').delete((req, res) => {
     User.findByIdAndRemove(req.params.id)
         .then(users =>  res.json('removed'))
-        .catch(err => res.status(400).json(error: 'Error post: ' + err))
+        .catch(err => res.status(400).json('error: ' + err))
 });
 
 module.exports = router;
