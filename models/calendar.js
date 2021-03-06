@@ -27,6 +27,10 @@ const calendarSchema = new Schema({
         type: Date, 
         default: Date.now
     },
+
+    when: {
+        type: Date
+    }
 });
 
 const Calendar = mongoose.model('Calendar', calendarSchema);
