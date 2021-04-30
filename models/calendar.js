@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const moment = require('moment-timezone');
-const dateBrazil = moment.tz(Date.now(), "America/Sao_Paulo");
 const Schema = mongoose.Schema;
 
 const calendarSchema = new Schema({    
@@ -26,7 +25,7 @@ const calendarSchema = new Schema({
 
     createdAt: { 
         type: Date, 
-        default: dateBrazil
+        default: moment.tz(Date.now(), "America/Bahia");
     },
 
     when: {
