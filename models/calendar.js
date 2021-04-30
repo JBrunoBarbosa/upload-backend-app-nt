@@ -25,7 +25,7 @@ const calendarSchema = new Schema({
 
     createdAt: { 
         type: Date, 
-        default: moment.tz(Date.now(), "America/Bahia");
+        default: moment.tz(Date.now(), "America/Bahia")
     },
 
     when: {
