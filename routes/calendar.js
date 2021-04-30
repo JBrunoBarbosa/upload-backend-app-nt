@@ -15,7 +15,12 @@ router.route('/add').post((req, res) => {
     newCalendar.save()
         .then(calendar => res.json('User Added'))
         .catch(err => res.status(400).json('Error post: ' + err))
+});
 
+router.route('/delete/:id').delete((req, res) => {
+    Calendar.findByIdAndRemove(req.params.id)
+        .then(calendar =>  res.json('removed'))
+        .catch(err => res.status(400).json('Error: ' + err))
 });
 
 module.exports = router;
