@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3000;
 require('dotenv').config();
 
 const USERS     = require('./routes/users');
+const TAREFAS   = require('./routes/tasks');
 const OBJETOS   = require('./routes/objetos');
 const COMPRAS   = require('./routes/compras');
 const FOLHAS    = require('./routes/folhas');
@@ -49,6 +50,7 @@ app.use('/sort', SORTEIO);
 app.use('/points', PONTO);
 app.use('/auth', AUTH);
 app.use('/calendar', CALENDAR);
+app.use('/tasks', TAREFAS)
 
 app.listen(PORT, () => {
     console.log(`Server running at port:${PORT}`);
