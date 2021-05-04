@@ -19,6 +19,11 @@ const tarefaSchema = new Schema({
         required: false,
     },
 
+    type: {
+       type: String,
+       required: false,
+    },
+
     createdBy: { 
         type: String, 
         required: true,

@@ -50,7 +50,7 @@ app.use('/sort', SORTEIO);
 app.use('/points', PONTO);
 app.use('/auth', AUTH);
 app.use('/calendar', CALENDAR);
-app.use('/tasks', TAREFAS)
+app.use('/tasks', TAREFAS);
 
 app.listen(PORT, () => {
     console.log(`Server running at port:${PORT}`);
