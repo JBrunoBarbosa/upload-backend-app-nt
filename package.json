@@ -17,6 +17,6 @@
     "express": "^4.17.1",
     "git": "^0.1.5",
     "moment-timezone": "^0.5.33",
-    "mongoose": "^5.11.5"
+    "mongoose": "^5.7.0"
   }
 }

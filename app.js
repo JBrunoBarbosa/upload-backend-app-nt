@@ -27,20 +27,13 @@ const agg = [
 ];
 
 const uri = process.env.DB_URL;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
-    function(connectErr, client) {
-        assert.equal(null, connectErr);
-        const coll = client.db('').collection('');
-        coll.aggregate(agg, (cmdErr, result) => {
-          assert.equal(null, cmdErr);
-        });
-        client.close();
-}); 
+mongoose.connect(uri, { useNewUrlParser: true }); 
 
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log("Mongo database connection works!");
-});
+mongoose.connection
+  .once('open', () => console.log("Mongo database connection works!"))
+  .on('error', error => {
+    console.log("Erro -> ", error);
+  });
 
 app.use('/users', USERS);
 app.use('/objects', OBJETOS);
