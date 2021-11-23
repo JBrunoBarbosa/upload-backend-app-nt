@@ -14,6 +14,7 @@ const SORTEIO   = require('./routes/sorteio');
 const PONTO     = require('./routes/pontos');
 const AUTH      = require('./routes/auth');
 const CALENDAR  = require('./routes/calendar');
+const NEWS      = require('./routes/news');
 
 app.use(cors());
 app.use(express.json());
@@ -44,6 +45,7 @@ app.use('/points', PONTO);
 app.use('/auth', AUTH);
 app.use('/calendar', CALENDAR);
 app.use('/tasks', TAREFAS);
+app.use('/news', NEWS);
 
 app.listen(PORT, () => {
     console.log(`Server running at port:${PORT}`);
