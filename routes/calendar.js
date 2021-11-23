@@ -7,6 +7,12 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 });
 
+router.route('/sorted').get((req, res) => {
+    Calendar.find().sort({createdAt: 'descending'})
+        .then(calendar => res.json(calendar))
+        .catch(err => res.status(400).json('Error: ' + err))
+});
+
 router.route('/add').post((req, res) => {
 
     const calendar = req.body;
