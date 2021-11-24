@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const moment = require('moment-timezone');
-const brazilianDate = moment(new Date(Date.now)).format('DD-MM-YYYY');
+var data = new Date();
+var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" 
+    + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
 
 const calendarSchema = new Schema({    
 
@@ -26,7 +27,7 @@ const calendarSchema = new Schema({
 
     createdAt: { 
         type: Date, 
-        default: new Date().toLocaleString("pt-BR")
+        default: dataFormatada
     },
 
     when: {
