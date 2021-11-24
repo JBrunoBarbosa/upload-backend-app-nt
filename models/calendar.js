@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const dateThailand = moment.tz(Date.now(), "Asia/Bangkok");
 
 const calendarSchema = new Schema({    
 
@@ -9,11 +8,6 @@ const calendarSchema = new Schema({
     },
 
     user: {
-        type: String, 
-        required: true,
-    },
-
-    title: {
         type: String, 
         required: true,
     },
@@ -30,7 +24,7 @@ const calendarSchema = new Schema({
 
     createdAt: { 
         type: Date, 
-        default: dateThailand
+        default: Date.now
     },
 
     when: {
