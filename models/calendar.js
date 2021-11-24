@@ -26,7 +26,7 @@ const calendarSchema = new Schema({
 
     createdAt: { 
         type: Date, 
-        default: new Date()
+        default: new Date("2017-03-16T17:46:53.677" + "+07:00").toLocaleString()
     },
 
     when: {
