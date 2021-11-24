@@ -27,7 +27,7 @@ const calendarSchema = new Schema({
 
     createdAt: { 
         type: Date, 
-        default: dataFormatada
+        default: Date.now
     },
 
     when: {
