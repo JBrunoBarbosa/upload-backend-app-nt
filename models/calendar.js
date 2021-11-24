@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const schemaOpts = { toJSON: { virtuals: true } };
+const moment = require('moment-timezone');
 
 const calendarSchema = new Schema({    
 
@@ -34,7 +35,7 @@ const calendarSchema = new Schema({
 });
 
 calendarSchema.virtual("adjustedTime").get(function(){
-    return moment().tz('Etc/GMT+1').format('DD-MM-YYYY HH:mm');
+    return moment.tz('Etc/GMT+1').format('DD-MM-YYYY HH:mm');
 });
 
 const Calendar = mongoose.model('Calendar', calendarSchema);
