@@ -12,6 +12,11 @@ const calendarSchema = new Schema({
         required: true,
     },
 
+    title: {
+        type: String, 
+        required: true,
+    },
+
     passou: {
         type: Boolean,
         required: true,
