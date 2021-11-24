@@ -26,7 +26,7 @@ const calendarSchema = new Schema({
 
     createdAt: { 
         type: Date, 
-        default: brazilianDate
+        default: new Date()
     },
 
     when: {
