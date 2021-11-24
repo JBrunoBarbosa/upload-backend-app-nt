@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const dateThailand = moment.tz(Date.now(), "Asia/Bangkok").format('DD-MM-YYYY HH:mm');
+const dateThailand = moment().tz('Etc/GMT+1').format('DD-MM-YYYY HH:mm ZZ');
 
 const calendarSchema = new Schema({    
 
