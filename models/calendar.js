@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const schemaOpts = { toJSON: { virtuals: true } };
 const moment = require('moment-timezone');
+const brazilianDate = moment(new Date(Date.now)).format('DD-MM-YYYY');
 
 const calendarSchema = new Schema({    
 
@@ -26,7 +26,7 @@ const calendarSchema = new Schema({
 
     createdAt: { 
         type: Date, 
-        default: dateThailand
+        default: brazilianDate
     },
 
     when: {
