@@ -10,7 +10,7 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
 
     const newsBody = req.body;
-    const news = new Calendar (newsBody);
+    const news = new News (newsBody);
 
     news.save()
         .then(news => res.json('User Added'))
