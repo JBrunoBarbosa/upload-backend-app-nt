@@ -2,7 +2,7 @@ const router = require('express').Router();
 let News = require('../models/news');
 
 router.route('/').get((req, res) => {
-    News.find()
+    News.find().sort({newsCreatedAt: 'descending'})
         .then(news => res.json(news))
         .catch(err => res.status(400).json('Error: ' + err))
 });
