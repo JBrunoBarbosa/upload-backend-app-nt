@@ -24,6 +24,11 @@ const pontosSchema = new Schema({
         required: true,
     },
 
+    imagesUrl: {
+        type: String, 
+        required: true,
+    },
+
     createdAt: { 
         type: Date, 
         default: Date.now
