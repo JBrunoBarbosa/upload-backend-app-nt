@@ -24,7 +24,7 @@ const pontosSchema = new Schema({
         required: true,
     },
 
-    imagesUrl: {
+    imageUrl: {
         type: String, 
         required: true,
     },
