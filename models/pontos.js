@@ -24,15 +24,10 @@ const pontosSchema = new Schema({
         required: true,
     },
 
-    imageUrl: {
-        type: String, 
-        required: true,
-    },
-
     createdAt: { 
         type: Date, 
         default: Date.now
-    }
+    },
 });
 
 const Ponto = mongoose.model('Ponto', pontosSchema);
