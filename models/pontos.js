@@ -32,7 +32,7 @@ const pontosSchema = new Schema({
     createdAt: { 
         type: Date, 
         default: Date.now
-    },
+    }
 });
 
 const Ponto = mongoose.model('Ponto', pontosSchema);
