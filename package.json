@@ -17,6 +17,8 @@
     "express": "^4.17.1",
     "git": "^0.1.5",
     "moment-timezone": "^0.5.34",
-    "mongoose": "^5.7.0"
+    "mongoose": "^5.13.14",
+    "node-expose-sspi": "^0.1.59",
+    "node-sspi": "^0.2.9"
   }
 }
