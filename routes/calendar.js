@@ -8,7 +8,7 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/sorted').get((req, res) => {
-    Calendar.find().sort({when: 'descending'})
+    Calendar.find().sort({when: 'ascending'})
         .then(calendar => res.json(calendar))
         .catch(err => res.status(400).json('Error: ' + err))
 });
