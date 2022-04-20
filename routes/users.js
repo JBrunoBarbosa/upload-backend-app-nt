@@ -26,4 +26,13 @@ router.route('/delete/:id').delete((req, res) => {
         .catch(err => res.status(400).json('error: error found'))
 });
 
+
+router.route('/update/:id').put((req, res) => {
+    User.findOneAndUpdate(
+        { _id: req.params.id },
+        { name: req.params.name, img: req.params.img },
+        { returnOriginal: false }
+    )
+});
+
 module.exports = router;
