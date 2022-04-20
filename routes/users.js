@@ -30,7 +30,7 @@ router.route('/delete/:id').delete((req, res) => {
 router.route('/update').post((req, res) => {
     User.findOneAndUpdate(
         req.body.id,
-        { name: req.body.name, img: req.body.img },
+        req.body,
         { returnOriginal: false }
     )
     .then(users =>  res.json('updated'))
