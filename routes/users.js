@@ -29,7 +29,7 @@ router.route('/delete/:id').delete((req, res) => {
 
 router.route('/update/:id').put((req, res) => {
     User.findOneAndUpdate(
-        req.params.id,
+        { _id: req.params.id },
         { name: req.body.name, img: req.body.img },
         { returnOriginal: false }
     )
