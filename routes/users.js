@@ -27,11 +27,13 @@ router.route('/delete/:id').delete((req, res) => {
 });
 
 
-router.route('/update').post((req, res) => {
-    User.findOneAndUpdate(
-        req.body.id,
-        req.body,
-        { returnOriginal: false }
+router.route('/update/:id').put((req, res) => {
+    User.findByIdAndUpdate(
+        req.params.id,
+        {
+            name: req.body.name,
+            img: req.body.img
+        }
     )
     .then(users =>  res.json('updated'))
     .catch(err => res.status(400).json('error: error found'))
