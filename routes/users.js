@@ -30,9 +30,11 @@ router.route('/delete/:id').delete((req, res) => {
 router.route('/update/:id').put((req, res) => {
     User.findOneAndUpdate(
         { id: req.params.id },
-        { name: req.params.name, img: req.params.img },
+        { name: req.body.name, img: req.body.img },
         { returnOriginal: false }
     )
+    .then(users =>  res.json('updated'))
+    .catch(err => res.status(400).json('error: error found'))
 });
 
 module.exports = router;
