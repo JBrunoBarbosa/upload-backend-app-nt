@@ -28,7 +28,7 @@ const agg = [
     }
 ];
 
-const uri = process.env.DB_URL;
+const uri = "mongodb+srv://dbUser:dbUserPassword@cluster0.yy3yd.mongodb.net/appnostravamus?retryWrites=true&w=majority";
 mongoose.connect(uri, { useNewUrlParser: true }); 
 
 mongoose.connection

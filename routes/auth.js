@@ -24,7 +24,7 @@ router.route('/').post((req, res) =>  {
             users.forEach(function(user) {
                 
                 if (user.password == userPassReq || user.password == SHA256(userPassReq)) {
-                    res.end(JSON.stringify({ name: userNameReq, img: user.img }));
+                    res.end(JSON.stringify({ _id: user._id, name: userNameReq, img: user.img }));
                 } else {
                     res.status(404).json('Error: pass not found') 
                 }
