@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const comprasSchema = new Schema({    
 
-    iten: {
+    item: {
         type: String, 
         required: true,
     },
@@ -14,7 +14,7 @@ const comprasSchema = new Schema({
         required: true,
     },
 
-    comprou: {
+    wasBought: {
         type: Boolean,
         required: true,
     },
