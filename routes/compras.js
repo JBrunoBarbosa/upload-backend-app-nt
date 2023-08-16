@@ -13,7 +13,7 @@ router.route('/add').post((req, res) => {
     const newCompras = new Compras (compras);
 
     newCompras.save()
-        .then(compras => res.json('User Added'))
+        .then(compras => res.json('Compras Adicionadas'))
         .catch(err => res.status(400).json('Error post: ' + err))
 
 });
